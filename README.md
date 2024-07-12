@@ -12,3 +12,5 @@ Open a terminal and run:
 ## Using the application
 Login with your username and password. You will then be presented with a menu
 of options.
+
+Cloned by Brycen Williams
