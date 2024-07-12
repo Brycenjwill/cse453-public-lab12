@@ -28,19 +28,21 @@ class Message:
         self._author = ""
         self._date = ""
         self._id = Message._id_next
+        self._security_level = ""
         Message._id_next += 1
 
     ##################################################
     # MESSAGE NON-DEFAULT CONSTRUCTOR
     # Create a message and fill it
     ##################################################   
-    def __init__(self, text, author, date):
+    def __init__(self, text, author, date, security):
         self._text = text
         self._author = author
         self._date = date
         self._id = Message._id_next
         Message._id_next += 1
         self._empty = False
+        self._security_level = security
 
     ##################################################
     # MESSAGE :: GET ID
@@ -48,7 +50,14 @@ class Message:
     ##################################################   
     def get_id(self):
         return self._id
-
+    
+    ##################################################
+    # MESSAGE :: GET Author
+    # Determine the unique ID of this message
+    ##################################################   
+    def get_author(self):
+        return self._author
+    
     ##################################################
     # MESSAGE :: DISPLAY PROPERTIES
     # Display the attributes/properties but not the
@@ -82,3 +91,4 @@ class Message:
         self._author = ""
         self._date = ""
         self._empty = True
+

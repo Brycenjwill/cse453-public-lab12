@@ -41,6 +41,16 @@ class Messages:
                 m.display_text()
                 return True
         return False
+    
+    ##################################################
+    # MESSAGES :: GET ACCESS
+    # Get security level of a message
+    ################################################## 
+    def getAccess(self, id):
+        for m in self._messages:
+            if m.get_id() == id:
+                return m.getAccess()
+        return "Public"
 
     ##################################################
     # MESSAGES :: UPDATE
@@ -64,8 +74,8 @@ class Messages:
     # MESSAGES :: ADD
     # Add a new message
     ################################################## 
-    def add(self, text, author, date):
-        m = message.Message(text, author, date)
+    def add(self, security_level, author, date, text):
+        m = message.Message(text, author, date, security_level)
         self._messages.append(m)
 
     ##################################################
@@ -77,7 +87,7 @@ class Messages:
             with open(filename, "r") as f:
                 for line in f:
                     text_control, author, date, text = line.split('|')
-                    self.add(text.rstrip('\r\n'), author, date)
+                    self.add(text_control, author, date, text)
 
         except FileNotFoundError:
             print(f"ERROR! Unable to open file \"{filename}\"")

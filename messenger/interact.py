@@ -51,10 +51,11 @@ class Interact:
 
     ##################################################
     # INTERACT :: SHOW
-    # Show a single message
+    # Show a single message if permissions are high enough
     ##################################################
     def show(self):
         id_ = self._prompt_for_id("display")
+
         if not self._p_messages.show(id_):
             print(f"ERROR! Message ID \'{id_}\' does not exist")
         print()

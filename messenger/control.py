@@ -26,3 +26,6 @@ USER_SECURITY_LEVELS = {
     'SeamanSly': SECURITY_LEVELS['Confidential'],
     'default': SECURITY_LEVELS['Public']
 }
+
+def readSecurityCondition(userSecurityLevel, assetSecurityLevel):
+    return userSecurityLevel >= assetSecurityLevel
