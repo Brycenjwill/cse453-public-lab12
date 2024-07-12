@@ -85,13 +85,19 @@ class Interact:
     ##################################################
     # INTERACT :: UPDATE
     # Update a single message
+    # User can update up but not down
     ################################################## 
     def update(self):
         id_ = self._prompt_for_id("update")
-        if not self._p_messages.show(id_):
-            print(f"ERROR! Message ID \'{id_}\' does not exist\n")
-            return
-        self._p_messages.update(id_, self._prompt_for_line("message"))
+        message_security = self._p_messages.get_security_level(id_)
+        if (message_security != "ERROR"):
+            if(control.updateSecurityCondition(self._username, message_security)):
+                if not self._p_messages.show(id_):
+                    print(f"ERROR! Message ID \'{id_}\' does not exist\n")
+                    return
+                self._p_messages.update(id_, self._prompt_for_line("message"))
+            else:
+                print("Sorry, your access level is too high to edit this message. ")
         print()
             
     ##################################################

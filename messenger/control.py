@@ -28,5 +28,7 @@ USER_SECURITY_LEVELS = {
 }
 
 def readSecurityCondition(username, assetSecurityLevel):
-    
     return USER_SECURITY_LEVELS[username] >= SECURITY_LEVELS[assetSecurityLevel]
+
+def updateSecurityCondition(username, assetSecurityLevel):
+    return USER_SECURITY_LEVELS[username] <= SECURITY_LEVELS[assetSecurityLevel]
