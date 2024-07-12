@@ -43,14 +43,15 @@ class Messages:
         return False
     
     ##################################################
-    # MESSAGES :: GET ACCESS
+    # MESSAGES :: GET SECURITY LEVEL
     # Get security level of a message
     ################################################## 
-    def getAccess(self, id):
+    def get_security_level(self, id):
         for m in self._messages:
             if m.get_id() == id:
-                return m.getAccess()
-        return "Public"
+                return m.get_access()
+        print("Couldn't find.")
+        return "ERROR"
 
     ##################################################
     # MESSAGES :: UPDATE

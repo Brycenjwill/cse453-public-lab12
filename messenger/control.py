@@ -27,5 +27,6 @@ USER_SECURITY_LEVELS = {
     'default': SECURITY_LEVELS['Public']
 }
 
-def readSecurityCondition(userSecurityLevel, assetSecurityLevel):
-    return userSecurityLevel >= assetSecurityLevel
+def readSecurityCondition(username, assetSecurityLevel):
+    
+    return USER_SECURITY_LEVELS[username] >= SECURITY_LEVELS[assetSecurityLevel]

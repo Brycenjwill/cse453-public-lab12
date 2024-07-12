@@ -55,10 +55,14 @@ class Interact:
     ##################################################
     def show(self):
         id_ = self._prompt_for_id("display")
-
-        if not self._p_messages.show(id_):
-            print(f"ERROR! Message ID \'{id_}\' does not exist")
-        print()
+        message_security = self._p_messages.get_security_level(id_)
+        if (message_security != "ERROR"):
+            if(control.readSecurityCondition(self._username, message_security)):
+                if not self._p_messages.show(id_):
+                    print(f"ERROR! Message ID \'{id_}\' does not exist")
+                print()
+            else:
+                print("Sorry, your access level is not high enough to view that message.")
 
     ##################################################
     # INTERACT :: DISPLAY

@@ -52,6 +52,14 @@ class Message:
         return self._id
     
     ##################################################
+    # MESSAGE :: GET ACCESS
+    # Update the security level of message
+    ################################################## 
+    def get_access(self):
+        return self._security_level
+
+
+    ##################################################
     # MESSAGE :: GET Author
     # Determine the unique ID of this message
     ##################################################   
